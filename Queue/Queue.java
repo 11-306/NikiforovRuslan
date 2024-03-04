@@ -5,13 +5,13 @@ public class Queue {
     private String[] data = new String[SIZE];
     private int start = 0;
     private int end = 0;
-    public boolean add(String element) {
-        if (end == SIZE) {
-            return false;
+
+    public void add(String element) {
+        if ((end + 1) % SIZE == start) {
+            System.out.println("Ошибка: Очередь переполнена!");
         } else {
             data[end] = element;
-            end++;
-            return true;
+            end = (end + 1) % SIZE;
         }
     }
 
@@ -20,12 +20,12 @@ public class Queue {
             return null;
         } else {
             String x = data[start];
-            start++;
+            start = (start + 1) % SIZE;
             return x;
         }
     }
 
     public int size() {
-        return end - start;
+        return (end - start + SIZE) % SIZE;
     }
 }

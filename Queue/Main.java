@@ -15,5 +15,8 @@ public class Main {
         System.out.println(queue.remove());
         System.out.println("Кол-во элементов: " + queue.size());
         System.out.println(queue.remove());
+        for(int i=0;i<100;i++){
+            queue.add("Иван");
+        }
     }
 }
